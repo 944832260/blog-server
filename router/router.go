@@ -1,16 +1,15 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"blog-server/handlers"
+	"github.com/gin-gonic/gin"
+)
 
 func  Register(app *gin.Engine) *gin.Engine {
-
+	UserBase := new(handlers.UserHandlers)
 	user := app.Group("/api/v1/user")
 	{
-		user.GET("/reg", func(c *gin.Context) {
-			c.JSON(200,gin.H{
-				"msg":"我很好",
-			})
-		})
+		user.GET("/reg", UserBase.CreateUser)
 	}
 
 
