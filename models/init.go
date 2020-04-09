@@ -30,7 +30,10 @@ func init() {
 	db, err = gorm.Open("mysql",strings.Join(dbURI, ""))
 	//不限制最大打开连接数
 	db.DB().SetMaxIdleConns(0)
-	db.CreateTable(&Article{})
+	//db.CreateTable(
+	//	&User{},
+	//	&Article{},
+	//)
 	fmt.Printf("5555")
 }
 

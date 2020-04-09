@@ -9,7 +9,8 @@ func  Register(app *gin.Engine) *gin.Engine {
 	UserBase := new(handlers.UserHandlers)
 	user := app.Group("/api/v1/user")
 	{
-		user.GET("/reg", UserBase.CreateUser)
+		user.POST("/reg", UserBase.CreateUser)
+		user.DELETE("/reg", UserBase.DeleteUser)
 	}
 
 
